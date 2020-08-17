@@ -5,13 +5,86 @@ import (
 	"time"
 )
 
-func Test_SetPassword(t *testing.T) {
+func Test_GetID(t *testing.T) {
 	user := UserImplement{
 		id:        "userID",
 		email:     "test@email.com",
 		password:  "password",
 		createdAt: time.Now(),
 		updateAt:  time.Now(),
+	}
+
+	if id := user.GetID(); id != "userID" {
+		t.Fail()
+	}
+}
+
+func Test_GetEmail(t *testing.T) {
+	now := time.Now()
+	user := UserImplement{
+		id:        "userID",
+		email:     "test@email.com",
+		password:  "password",
+		createdAt: now,
+		updateAt:  now,
+	}
+
+	if email := user.GetEmail(); email != "test@email.com" {
+		t.Fail()
+	}
+}
+
+func Test_GetPassword(t *testing.T) {
+	now := time.Now()
+	user := UserImplement{
+		id:        "userID",
+		email:     "test@email.com",
+		password:  "password",
+		createdAt: now,
+		updateAt:  now,
+	}
+
+	if password := user.GetPassword(); password != "password" {
+		t.Fail()
+	}
+}
+
+func Test_GetCreatedAt(t *testing.T) {
+	now := time.Now()
+	user := UserImplement{
+		id:        "userID",
+		email:     "test@email.com",
+		password:  "password",
+		createdAt: now,
+		updateAt:  now,
+	}
+	if createdAt := user.GetCreatedAt(); createdAt != now {
+		t.Fail()
+	}
+}
+
+func Test_GetUpdatedAt(t *testing.T) {
+	now := time.Now()
+	user := UserImplement{
+		id:        "userID",
+		email:     "test@email.com",
+		password:  "password",
+		createdAt: now,
+		updateAt:  now,
+	}
+	if updatedAt := user.GetUpdatedAt(); updatedAt != now {
+		t.Fail()
+	}
+}
+
+func Test_SetPassword(t *testing.T) {
+	now := time.Now()
+	user := UserImplement{
+		id:        "userID",
+		email:     "test@email.com",
+		password:  "password",
+		createdAt: now,
+		updateAt:  now,
 	}
 
 	if err := user.SetPassword("new password"); err != nil {

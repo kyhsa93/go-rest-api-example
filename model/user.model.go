@@ -21,6 +21,31 @@ type UserImplement struct {
 	updateAt  time.Time
 }
 
+// GetID get id
+func (user *UserImplement) GetID() string {
+	return user.id
+}
+
+// GetEmail get email
+func (user *UserImplement) GetEmail() string {
+	return user.email
+}
+
+// GetPassword get password
+func (user *UserImplement) GetPassword() string {
+	return user.password
+}
+
+// GetCreatedAt get created datetime
+func (user *UserImplement) GetCreatedAt() time.Time {
+	return user.createdAt
+}
+
+// GetUpdatedAt get updated datetime
+func (user *UserImplement) GetUpdatedAt() time.Time {
+	return user.updateAt
+}
+
 // SetPassword update user password
 func (user *UserImplement) SetPassword(password string) error {
 	hash, _ := bcrypt.GenerateFromPassword([]byte(password), bcrypt.MinCost)
