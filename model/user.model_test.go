@@ -77,6 +77,22 @@ func Test_GetUpdatedAt(t *testing.T) {
 	}
 }
 
+func Test_SetID(t *testing.T) {
+	user := UserImplement{}
+	user.SetID("userID")
+	if userID := user.GetID(); userID != "userID" {
+		t.Fail()
+	}
+}
+
+func Test_SetEmail(t *testing.T) {
+	user := UserImplement{}
+	user.SetEmail("test@email.com")
+	if email := user.GetEmail(); email != "test@email.com" {
+		t.Fail()
+	}
+}
+
 func Test_SetPassword(t *testing.T) {
 	now := time.Now()
 	user := UserImplement{
@@ -88,6 +104,24 @@ func Test_SetPassword(t *testing.T) {
 	}
 
 	if err := user.SetPassword("new password"); err != nil {
+		t.Fail()
+	}
+}
+
+func Test_SetCreatedAt(t *testing.T) {
+	now := time.Now()
+	user := UserImplement{}
+	user.SetCreatedAt(now)
+	if createdAt := user.GetCreatedAt(); createdAt != now {
+		t.Fail()
+	}
+}
+
+func Test_SetUpdatedAt(t *testing.T) {
+	now := time.Now()
+	user := UserImplement{}
+	user.SetUpdatedAt(now)
+	if updatedAt := user.GetUpdatedAt(); updatedAt != now {
 		t.Fail()
 	}
 }
