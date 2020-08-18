@@ -27,7 +27,7 @@ type UserImplement struct {
 	email     string
 	password  string
 	createdAt time.Time
-	updateAt  time.Time
+	updatedAt time.Time
 }
 
 // GetID get id
@@ -52,7 +52,7 @@ func (user *UserImplement) GetCreatedAt() time.Time {
 
 // GetUpdatedAt get updated datetime
 func (user *UserImplement) GetUpdatedAt() time.Time {
-	return user.updateAt
+	return user.updatedAt
 }
 
 // SetID set id
@@ -79,7 +79,7 @@ func (user *UserImplement) SetCreatedAt(datetime time.Time) {
 
 // SetUpdatedAt set updatedAt
 func (user *UserImplement) SetUpdatedAt(datetime time.Time) {
-	user.updateAt = datetime
+	user.updatedAt = datetime
 }
 
 // ComparePassword compare password

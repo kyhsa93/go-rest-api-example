@@ -11,7 +11,7 @@ func Test_GetID(t *testing.T) {
 		email:     "test@email.com",
 		password:  "password",
 		createdAt: time.Now(),
-		updateAt:  time.Now(),
+		updatedAt: time.Now(),
 	}
 
 	if id := user.GetID(); id != "userID" {
@@ -26,7 +26,7 @@ func Test_GetEmail(t *testing.T) {
 		email:     "test@email.com",
 		password:  "password",
 		createdAt: now,
-		updateAt:  now,
+		updatedAt: now,
 	}
 
 	if email := user.GetEmail(); email != "test@email.com" {
@@ -41,7 +41,7 @@ func Test_GetPassword(t *testing.T) {
 		email:     "test@email.com",
 		password:  "password",
 		createdAt: now,
-		updateAt:  now,
+		updatedAt: now,
 	}
 
 	if password := user.GetPassword(); password != "password" {
@@ -56,7 +56,7 @@ func Test_GetCreatedAt(t *testing.T) {
 		email:     "test@email.com",
 		password:  "password",
 		createdAt: now,
-		updateAt:  now,
+		updatedAt: now,
 	}
 	if createdAt := user.GetCreatedAt(); createdAt != now {
 		t.Fail()
@@ -70,7 +70,7 @@ func Test_GetUpdatedAt(t *testing.T) {
 		email:     "test@email.com",
 		password:  "password",
 		createdAt: now,
-		updateAt:  now,
+		updatedAt: now,
 	}
 	if updatedAt := user.GetUpdatedAt(); updatedAt != now {
 		t.Fail()
@@ -100,7 +100,7 @@ func Test_SetPassword(t *testing.T) {
 		email:     "test@email.com",
 		password:  "password",
 		createdAt: now,
-		updateAt:  now,
+		updatedAt: now,
 	}
 
 	if err := user.SetPassword("new password"); err != nil {
@@ -132,7 +132,7 @@ func Test_ComparePassword(t *testing.T) {
 		email:     "test@email.com",
 		password:  "password",
 		createdAt: time.Now(),
-		updateAt:  time.Now(),
+		updatedAt: time.Now(),
 	}
 
 	user.SetPassword("new password")
