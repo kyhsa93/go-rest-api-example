@@ -1,11 +1,5 @@
 package command
 
-// CreateUserCommandHandler handler for CreateUserCommand
-type CreateUserCommandHandler interface{}
-
-// CreateUserCommandHandlerImplement handler implement for CreateUSerCommand
-type CreateUserCommandHandlerImplement struct{}
-
 // UpdateUserCommandHandler handler for UpdateUserCommand
 type UpdateUserCommandHandler interface{}
 
