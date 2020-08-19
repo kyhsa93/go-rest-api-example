@@ -1,4 +1,6 @@
 package query
 
 // FindUserQuery query for find user by userID
-type FindUserQuery struct{}
+type FindUserQuery struct {
+	UserID string
+}
