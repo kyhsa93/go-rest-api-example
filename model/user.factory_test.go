@@ -2,7 +2,7 @@ package model
 
 import "testing"
 
-func Test_Create(t *testing.T) {
+func TestCreate(t *testing.T) {
 	email := "test@email.com"
 	password := "password"
 

@@ -12,6 +12,7 @@ type UserRepository interface {
 	Save(user model.User)
 	FindByID(userID string) model.User
 	FindByEmail(email string) model.User
+	Delete(user model.User)
 }
 
 // UserRepositoryImplement implement for user repository
@@ -38,4 +39,10 @@ func (repository *UserRepositoryImplement) FindByEmail(email string) model.User 
 	user := entity.UserEntity{}
 	repository.database.Where(&entity.UserEntity{Email: email}).First(&user)
 	return repository.mapper.ModelFromEntity(user)
+}
+
+// Delete delete user data
+func (repository *UserRepositoryImplement) Delete(user model.User) {
+	entity := repository.mapper.EntityFromModel(user)
+	repository.database.Delete(entity)
 }

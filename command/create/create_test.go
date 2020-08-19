@@ -1,4 +1,4 @@
-package command
+package create
 
 import (
 	"testing"
@@ -26,27 +26,32 @@ func (repository *RepositoryMock) Save(user model.User) {}
 func (repository *RepositoryMock) FindByID(userID string) model.User {
 	user := &model.UserImplement{}
 	user.SetID(userID)
+	user.SetEmail("test@email.com")
+	user.SetPassword("password")
+	user.SetCreatedAt(time.Now())
+	user.SetUpdatedAt(time.Now())
 	return user
 }
 
 func (repository *RepositoryMock) FindByEmail(email string) model.User {
 	user := &model.UserImplement{}
-	user.SetEmail(email)
 	return user
 }
 
-func Test_Handle(t *testing.T) {
-	command := CreateUserCommand{
+func (repository *RepositoryMock) Delete(user model.User) {}
+
+func TestHandle(t *testing.T) {
+	command := Command{
 		Email:    "test.@email.com",
 		Password: "password",
 	}
 
-	handler := CreateUserCommandHandlerImplement{
+	handler := CommandHandlerImplement{
 		factory:    &FactoryMock{},
 		repository: &RepositoryMock{},
 	}
 
-	if err := handler.Handle(command); err != nil {
-		t.Fatal("can not handle CreateUserCommand")
+	if err := handler.Handle(&command); err != nil {
+		t.Fatal(err)
 	}
 }

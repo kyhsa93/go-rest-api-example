@@ -8,7 +8,7 @@ import (
 	"github.com/kyhsa93/rest-api-example/model"
 )
 
-func Test_EntityFromModel(t *testing.T) {
+func TestEntityFromModel(t *testing.T) {
 	now := time.Now()
 
 	id := "userID"
@@ -44,7 +44,7 @@ func Test_EntityFromModel(t *testing.T) {
 	}
 }
 
-func Test_ModelFromEntity(t *testing.T) {
+func TestModelFromEntity(t *testing.T) {
 	now := time.Now()
 	entity := entity.UserEntity{
 		ID:        "userID",

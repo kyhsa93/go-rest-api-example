@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-func Test_GetID(t *testing.T) {
+func TestGetID(t *testing.T) {
 	user := UserImplement{
 		id:        "userID",
 		email:     "test@email.com",
@@ -19,7 +19,7 @@ func Test_GetID(t *testing.T) {
 	}
 }
 
-func Test_GetEmail(t *testing.T) {
+func TestGetEmail(t *testing.T) {
 	now := time.Now()
 	user := UserImplement{
 		id:        "userID",
@@ -34,7 +34,7 @@ func Test_GetEmail(t *testing.T) {
 	}
 }
 
-func Test_GetPassword(t *testing.T) {
+func TestGetPassword(t *testing.T) {
 	now := time.Now()
 	user := UserImplement{
 		id:        "userID",
@@ -49,7 +49,7 @@ func Test_GetPassword(t *testing.T) {
 	}
 }
 
-func Test_GetCreatedAt(t *testing.T) {
+func TestGetCreatedAt(t *testing.T) {
 	now := time.Now()
 	user := UserImplement{
 		id:        "userID",
@@ -63,7 +63,7 @@ func Test_GetCreatedAt(t *testing.T) {
 	}
 }
 
-func Test_GetUpdatedAt(t *testing.T) {
+func TestGetUpdatedAt(t *testing.T) {
 	now := time.Now()
 	user := UserImplement{
 		id:        "userID",
@@ -77,7 +77,7 @@ func Test_GetUpdatedAt(t *testing.T) {
 	}
 }
 
-func Test_SetID(t *testing.T) {
+func TestSetID(t *testing.T) {
 	user := UserImplement{}
 	user.SetID("userID")
 	if userID := user.GetID(); userID != "userID" {
@@ -85,7 +85,7 @@ func Test_SetID(t *testing.T) {
 	}
 }
 
-func Test_SetEmail(t *testing.T) {
+func TestSetEmail(t *testing.T) {
 	user := UserImplement{}
 	user.SetEmail("test@email.com")
 	if email := user.GetEmail(); email != "test@email.com" {
@@ -93,7 +93,7 @@ func Test_SetEmail(t *testing.T) {
 	}
 }
 
-func Test_SetPassword(t *testing.T) {
+func TestSetPassword(t *testing.T) {
 	now := time.Now()
 	user := UserImplement{
 		id:        "userID",
@@ -108,7 +108,7 @@ func Test_SetPassword(t *testing.T) {
 	}
 }
 
-func Test_SetCreatedAt(t *testing.T) {
+func TestSetCreatedAt(t *testing.T) {
 	now := time.Now()
 	user := UserImplement{}
 	user.SetCreatedAt(now)
@@ -117,7 +117,7 @@ func Test_SetCreatedAt(t *testing.T) {
 	}
 }
 
-func Test_SetUpdatedAt(t *testing.T) {
+func TestSetUpdatedAt(t *testing.T) {
 	now := time.Now()
 	user := UserImplement{}
 	user.SetUpdatedAt(now)
@@ -126,7 +126,7 @@ func Test_SetUpdatedAt(t *testing.T) {
 	}
 }
 
-func Test_ComparePassword(t *testing.T) {
+func TestComparePassword(t *testing.T) {
 	user := UserImplement{
 		id:        "userID",
 		email:     "test@email.com",
