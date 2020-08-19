@@ -30,6 +30,6 @@ func (bus *BusImplement) Handle(userCommand interface{}) error {
 	case *delete.Command:
 		return bus.deleteUserCommandHandler.Handle(userCommand)
 	default:
-		return errors.New("cna not handle command")
+		return errors.New("can not handle command")
 	}
 }
