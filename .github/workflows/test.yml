@@ -3,7 +3,7 @@ name: Execute test code
 on: 
   push:
     paths:
-      - ./**
+      - /**
       - .github/workflows/test.yml
   pull_request:
     types: [opened, synchronize, reopened]
