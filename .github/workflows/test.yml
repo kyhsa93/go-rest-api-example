@@ -2,9 +2,8 @@ name: Execute test code
 
 on: 
   push:
-    paths:
-      - /**
-      - .github/workflows/test.yml
+    branches:
+      - master
   pull_request:
     types: [opened, synchronize, reopened]
 

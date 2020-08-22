@@ -20,23 +20,21 @@ type CommandHandlerImplement struct {
 
 // Handle handle Command
 func (handler *CommandHandlerImplement) Handle(command *Command) error {
-	email := command.Email
-	password := command.Password
-
-	err := handler.checkDuplicatedByEmail(email)
+	err := handler.checkDuplicatedByEmail(command.Email)
 	if err != nil {
 		return err
 	}
 
-	user := handler.factory.Create(email, password)
+	user := handler.factory.Create(command.Email, command.Password)
 
 	handler.repository.Save(user)
 
 	return nil
 }
 
-func (handler *CommandHandlerImplement) checkDuplicatedByEmail(email string) error {
-	if user := handler.repository.FindByEmail(email); user.GetID() != "" {
+func (handler *CommandHandlerImplement) checkDuplicatedByEmail(emailString *string) error {
+	email := model.Email(*emailString)
+	if user := handler.repository.FindByEmail(&email); user.ID() == nil || *user.ID() != "" {
 		return errors.New("user email is already exists")
 	}
 	return nil

@@ -19,10 +19,10 @@ type FindUserQueryHandlerImplement struct {
 
 // Handle handle FindUserQuery
 func (handler *FindUserQueryHandlerImplement) Handle(query *FindUserQuery) (model.User, error) {
-	userID := query.UserID
-	user := handler.repository.FindByID(userID)
+	userID := model.UserID(query.UserID)
+	user := handler.repository.FindByID(&userID)
 
-	if user.GetID() == "" {
+	if *user.ID() == "" {
 		return nil, errors.New("user not found")
 	}
 

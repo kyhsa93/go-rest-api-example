@@ -1,6 +1,9 @@
 package delete
 
-import "github.com/kyhsa93/rest-api-example/repository"
+import (
+	"github.com/kyhsa93/rest-api-example/model"
+	"github.com/kyhsa93/rest-api-example/repository"
+)
 
 // CommandHandler handler for Command
 type CommandHandler interface {
@@ -14,8 +17,8 @@ type CommandHandlerImplement struct {
 
 // Handle handle Command
 func (handler *CommandHandlerImplement) Handle(command *Command) error {
-	userID := command.UserID
-	user := handler.repository.FindByID(userID)
+	userID := model.UserID(*command.UserID)
+	user := handler.repository.FindByID(&userID)
 	handler.repository.Delete(user)
 	return nil
 }
